@@ -23,7 +23,13 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
     //---------Métodos---------
 
     //Constructor
-    public option_21157479_GustafssonCortes(int code, String message, int chatbotCodeLink, int initialFlowCodeLink,  )
+    public option_21157479_GustafssonCortes(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keyword){
+        this.code = code;
+        this.message = message;
+        this.chatbotCodeLink = chatbotCodeLink;
+        this.initialFlowCodeLink = initialFlowCodeLink;
+        this.keyword = new ArrayList<>();
+    }
     //Selectores
 
 }
