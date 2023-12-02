@@ -1,7 +1,6 @@
 package clases;
 import interfaces.Ioption_21157479_GustafssonCortes;
 import java.util.ArrayList;
-import java.util.ArrayList;
 
 /**
  * CLASE OPTION:
@@ -30,6 +29,49 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
         this.initialFlowCodeLink = initialFlowCodeLink;
         this.keyword = new ArrayList<>();
     }
+
     //Selectores
+
+    /**
+     * Se selecciona el codigo de la opción.
+     */
+    @Override
+    public int getCode() {
+        return code;
+    }
+
+    /**
+     * Se selecciona el mensaje de la opción.
+     */
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    /**
+     * Se selecciona el link del chatbot de una opción.
+     */
+    @Override
+    public int getChatbotCodeLink() {
+        return chatbotCodeLink;
+    }
+
+    /**
+     * Se selecciona el código del link inicial del flow de una opción.
+     */
+    @Override
+    public int getInitialFlowCodeLink() {
+        return initialFlowCodeLink;
+    }
+
+    /**
+     * Se selecciona los o el keyword de una opción.
+     */
+    @Override
+    public ArrayList<String> getKeyword() {
+        return keyword;
+    }
+
+    //Modificadores
 
 }
