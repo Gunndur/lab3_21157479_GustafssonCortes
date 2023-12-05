@@ -2,6 +2,15 @@ package clases;
 import interfaces.Iflow_21157479_GustafssonCortes;
 import java.util.ArrayList;
 
+/**
+ * CLASE FLOW:
+ * Clase que representa un flujo en particular sin ningun tipo de repticion de un chatbot, este se representa por un id
+ * unico de tipo entero positivo, un nombre del mensaje propiamente tal del flujo de tipo strinng y un listado
+ * de las posibles opciones a escoger, donde cada uno de los elementos es de tipo option.
+ *
+ * Dom: id(int) x name-msg(String) x options(Lista de option).
+ * Rec: flow.
+ */
 public class flow_21157479_GustafssonCortes implements Iflow_21157479_GustafssonCortes {
     //---------Atributos---------
     private int id;
@@ -43,14 +52,19 @@ public class flow_21157479_GustafssonCortes implements Iflow_21157479_Gustafsson
 
 
     //Modificadores
+
+    /**
+     * Modifica un flujo para poder añadirle una nueva opción, pero primero verifica que no esté repetida mediante su
+     * id, si está repetida la opción, no es agregada y se mantiene el flujo inicial.
+     */
     public void flowAddOption(option_21157479_GustafssonCortes option){
         int x = option.getCode();
         ArrayList<option_21157479_GustafssonCortes> options = this.getOptions();
         for(option_21157479_GustafssonCortes op : options){
             if (op.getCode() == x){
-            return options;
+                return;
             }
         }
-
+    this.options.add(option);
     }
 }
