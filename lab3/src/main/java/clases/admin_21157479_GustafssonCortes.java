@@ -2,7 +2,7 @@ package clases;
 
 /**
  * CLASE ADMIN:
- * Clase que representa un usuario tipo administrador, con su nombre y con un historial del chat propio.
+ * Clase que representa un usuario tipo administrador, con su nombre.
  * Hereda los atributos y métodos de la clase user_21157479_GustafssonCortes.
  *
  * Dom: username(String).
