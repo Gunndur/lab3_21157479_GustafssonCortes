@@ -17,12 +17,12 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
     private String message;
     private int chatbotCodeLink;
     private int initialFlowCodeLink;
-    private ArrayList<String> keyword;
+    private String[] keyword;
 
     //---------Métodos---------
 
     //Constructor
-    public void option(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keyword){
+    public void option(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, String... keyword){
         this.code = code;
         this.message = message;
         this.chatbotCodeLink = chatbotCodeLink;
@@ -68,7 +68,7 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
      * Se selecciona los o el keyword de una opción.
      */
     @Override
-    public ArrayList<String> getKeyword() {
+    public String[] getKeyword() {
         return keyword;
     }
 

@@ -28,5 +28,5 @@ public interface Ioption_21157479_GustafssonCortes {
     /**
      * Se selecciona los o el keyword de una opción.
      */
-    public ArrayList<String> getKeyword();
+    public String[] getKeyword();
 }
