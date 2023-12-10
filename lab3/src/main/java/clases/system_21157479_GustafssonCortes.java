@@ -118,13 +118,25 @@ public class system_21157479_GustafssonCortes implements Isystem_21157479_Gustaf
      * Hace iniciar sesión a un usuario en el sistema, pero primero se comprueba que no esté "conectado", que no haya
      * nadie con su misma id (su nombre) o que no existe una sesión ya iniciada por otro usuario.
      */
-    public void systemLogin(){}
+    public void systemLogin(user_21157479_GustafssonCortes user){
+        String x = user.getUsername();
+        ArrayList<user_21157479_GustafssonCortes> users = this.getUsers();
+        String estado = this.getEstado();
+        for(user_21157479_GustafssonCortes us : users){
+            if (us.getUsername() == x || estado == null){
+                this.estado = x;
+                return;
+            }
+        }
+    }
 
 
     /**
      * Permite cerrar la sesión abierta anteriormente por un mismo usuario.
      */
-    public void systemLogout(){}
+    public void systemLogout(){
+        this.estado = null;
+    }
 
 
 }
