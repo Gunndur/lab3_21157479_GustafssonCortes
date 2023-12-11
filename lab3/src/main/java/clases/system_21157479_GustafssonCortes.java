@@ -138,5 +138,8 @@ public class system_21157479_GustafssonCortes implements Isystem_21157479_Gustaf
         this.estado = null;
     }
 
-
+    /**
+     * Permite interactuar con un usuario que ya haya iniciado sesión.
+     */
+    public void system_talk(String message){}
 }

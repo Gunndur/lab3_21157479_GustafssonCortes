@@ -18,5 +18,5 @@ public interface Iflow_21157479_GustafssonCortes {
     /**
      * Se selecciona la lista de opciones del flow.
      */
-    public ArrayList<option_21157479_GustafssonCortes> getOptions();
+    public String[] getOptions();
 }

@@ -22,7 +22,7 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
     //---------Métodos---------
 
     //Constructor
-    public void option(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, String... keyword){
+    public void option_21157479_GustafssonCortes(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, String... keyword){
         this.code = code;
         this.message = message;
         this.chatbotCodeLink = chatbotCodeLink;
