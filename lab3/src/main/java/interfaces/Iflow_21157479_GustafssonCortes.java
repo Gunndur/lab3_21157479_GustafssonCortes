@@ -7,16 +7,31 @@ import java.util.ArrayList;
  */
 public interface Iflow_21157479_GustafssonCortes {
     /**
-     * Se selecciona el codigo del flow.
+     * Se selecciona el código del flow.
+     *
+     * @return int Código de un flujo.
      */
     public int getId();
 
     /**
      * Se selecciona el mensaje del flow.
+     *
+     * @return String Mensaje de un flujo.
      */
     public String getName_msg();
     /**
      * Se selecciona la lista de opciones del flow.
+     *
+     * @return ArrayList Lista de opciones de un flujo.
      */
-    public String[] getOptions();
+    public ArrayList<option_21157479_GustafssonCortes> getOptions();
+
+    /**
+     * Modifica un flujo para poder añadirle una nueva opción, pero primero verifica que no esté repetida mediante su
+     * id, si está repetida la opción, no es agregada y se mantiene el flujo inicial.
+     *
+     * @param option Opción a agregar.
+     */
+    public void flowAddOption(option_21157479_GustafssonCortes option);
 }
+

@@ -1,6 +1,9 @@
 package clases;
 import interfaces.Iflow_21157479_GustafssonCortes;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CLASE FLOW:
@@ -10,25 +13,35 @@ import java.util.ArrayList;
  *
  * Dom: id(int) x name-msg(String) x options(Lista de option).
  * Rec: flow.
+ *
+ * @author Thomas Gustafsson Cortés
  */
+
 public class flow_21157479_GustafssonCortes implements Iflow_21157479_GustafssonCortes {
     //---------Atributos---------
     private int id;
     private String name_msg;
-    private String[] options;
+    private ArrayList<option_21157479_GustafssonCortes> options;
 
     //---------Métodos---------
 
-    //Constructor
-    public void flow_21157479_GustafssonCortes(int id, String name_msg, String... options){
+    /**
+     * Constructor.
+     * @param id
+     * @param name_msg
+     * @param options
+     */
+    public flow_21157479_GustafssonCortes(int id, String name_msg, option_21157479_GustafssonCortes... options){
         this.id = id;
         this.name_msg = name_msg;
-        this.options = options;
+        this.options = new ArrayList<>(List.of(options));
     }
 
     //Selectores
     /**
-     * Se selecciona el codigo del flow.
+     * Se selecciona el código del flow.
+     *
+     * @return int Código de un flujo.
      */
     @Override
     public int getId() {
@@ -37,6 +50,8 @@ public class flow_21157479_GustafssonCortes implements Iflow_21157479_Gustafsson
 
     /**
      * Se selecciona el mensaje del flow.
+     *
+     * @return String Mensaje de un flujo.
      */
     @Override
     public String getName_msg() {
@@ -44,27 +59,30 @@ public class flow_21157479_GustafssonCortes implements Iflow_21157479_Gustafsson
     }
     /**
      * Se selecciona la lista de opciones del flow.
+     *
+     * @return ArrayList Lista de opciones de un flujo.
      */
     @Override
-    public String[] getOptions() {
+    public ArrayList<option_21157479_GustafssonCortes> getOptions() {
         return options;
     }
-
 
     //Modificadores
 
     /**
      * Modifica un flujo para poder añadirle una nueva opción, pero primero verifica que no esté repetida mediante su
      * id, si está repetida la opción, no es agregada y se mantiene el flujo inicial.
+     *
+     * @param option Opción a agregar.
      */
     public void flowAddOption(option_21157479_GustafssonCortes option){
         int x = option.getCode();
-        String[] options = this.getOptions();
+        ArrayList<option_21157479_GustafssonCortes> options = this.options;
         for(option_21157479_GustafssonCortes op : options){
             if (op.getCode() == x){
                 return;
             }
         }
-    this.options.add(option);
+        this.options.add(option);
     }
 }

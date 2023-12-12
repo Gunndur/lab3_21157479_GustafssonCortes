@@ -7,18 +7,21 @@ package clases;
  *
  * Dom: username(String).
  * Rec: admin.
+ *
+ * @author Thomas Gustafsson Cortés
  */
 public class admin_21157479_GustafssonCortes extends user_21157479_GustafssonCortes{
     //---------Atributos---------
 
     //---------Métodos---------
 
-    //Constructor
-    public void admin(String username){
+    /**
+     * Constructor.
+     * @param username
+     */
+    public admin_21157479_GustafssonCortes(String username){
         this.username = username;
+        this.tipo = 1;
     }
-    //Selectores
-
-    //Modificadores
 
 }

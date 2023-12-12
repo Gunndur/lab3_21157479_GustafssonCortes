@@ -1,6 +1,7 @@
 package clases;
 import interfaces.Ichatbot_21157479_GustafssonCortes;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CLASE CHATBOT:
@@ -10,7 +11,10 @@ import java.util.ArrayList;
  *
  * Dom: chatbotID(int) x name(String) x welcomeMessage(String) x startFlowId(int) x  flows(Lista de flows).
  * Rec: chatbot.
+ *
+ * @author Thomas Gustafsson Cortés
  */
+
 public class chatbot_21157479_GustafssonCortes implements Ichatbot_21157479_GustafssonCortes {
     //---------Atributos---------
     private int chatbotID;
@@ -20,17 +24,26 @@ public class chatbot_21157479_GustafssonCortes implements Ichatbot_21157479_Gust
     private ArrayList<flow_21157479_GustafssonCortes> flows;
     //---------Métodos---------
 
-    //Constructor
-    public void chatbot(int chatbotID, String name, String welcomeMessage, int startFlowId, ArrayList<flow_21157479_GustafssonCortes> flows){
+    /**
+     * Constructor.
+     * @param chatbotID
+     * @param name
+     * @param welcomeMessage
+     * @param startFlowId
+     * @param flows
+     */
+    public chatbot_21157479_GustafssonCortes(int chatbotID, String name, String welcomeMessage, int startFlowId, flow_21157479_GustafssonCortes... flows){
         this.chatbotID = chatbotID;
         this.name = name;
         this.welcomeMessage = welcomeMessage;
         this.startFlowId = startFlowId;
-        this.flows = flows;
+        this.flows = new ArrayList<>(List.of(flows));
     }
     //Selectores
     /**
      * Se selecciona el id del chatbot.
+     *
+     * @return int Id del chatbot.
      */
     @Override
     public int getChatbotID() {
@@ -39,15 +52,18 @@ public class chatbot_21157479_GustafssonCortes implements Ichatbot_21157479_Gust
 
     /**
      * Se selecciona el nombre del chatbot.
+     *
+     * @return String Nombre.
      */
     @Override
     public String getName() {
         return name;
     }
 
-
     /**
      * Se selecciona el mensaje de bienvenida del chatbot.
+     *
+     * @return String Mensaje de bienvenida.
      */
     @Override
     public String getWelcomeMessage() {
@@ -56,6 +72,8 @@ public class chatbot_21157479_GustafssonCortes implements Ichatbot_21157479_Gust
 
     /**
      * Se selecciona el codigo inicial de un flujo del chatbot.
+     *
+     * @return int Codigo inicial de un flujo.
      */
     public int getStartFlowId() {
         return startFlowId;
@@ -63,6 +81,8 @@ public class chatbot_21157479_GustafssonCortes implements Ichatbot_21157479_Gust
 
     /**
      * Se selecciona la lista de flujos del chatbot.
+     *
+     * @return ArrayList Lista de flujos.
      */
     @Override
     public ArrayList<flow_21157479_GustafssonCortes> getFlows() {
@@ -71,10 +91,13 @@ public class chatbot_21157479_GustafssonCortes implements Ichatbot_21157479_Gust
 
 
     //Modificadores
+
     /**
      * Añade un nuevo flujo a un chatbot, verificando que esté no se repita, esto se valida mediante el id del flujo,
      * si es así, no se añade y se mantiene el chatbot inicial. Añadir que se debe implementar un tipo de recursión,
      * en este caso se usó la recursión natural.
+     *
+     * @param flow Flujo a agregar.
      */
     public void chatbotAddFlow(flow_21157479_GustafssonCortes flow){
         int x = flow.getId();

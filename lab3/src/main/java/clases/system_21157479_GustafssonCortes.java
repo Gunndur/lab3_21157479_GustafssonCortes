@@ -1,6 +1,7 @@
 package clases;
 import interfaces.Isystem_21157479_GustafssonCortes;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CLASE SYSTEM:
@@ -10,36 +11,40 @@ import java.util.ArrayList;
  *
  * Dom: name(String) x initialChatbotCodeLink(int) x  chatbots(Lista de chatbot).
  * Rec: system.
+ *
+ * @author Thomas Gustafsson Cortés
  */
+
 public class system_21157479_GustafssonCortes implements Isystem_21157479_GustafssonCortes{
     //---------Atributos---------
     private String name;
     private int initialChatbotCodeLink;
     private ArrayList<chatbot_21157479_GustafssonCortes> chatbots;
-
-
-    //??????????????????????????
     private ArrayList<user_21157479_GustafssonCortes> users;
-    private ArrayList<chatHistory_21157479_GustafssonCortes> chat;
+    private String[] chat;
     private String estado;
 
     //---------Métodos---------
 
-    //Constructor
-    public void system(String name, int initialChatbotCodeLink, ArrayList<chatbot_21157479_GustafssonCortes> chatbots){
+    /**
+     * Constructor.
+     * @param name
+     * @param initialChatbotCodeLink
+     * @param chatbots
+     */
+    public system_21157479_GustafssonCortes(String name, int initialChatbotCodeLink, chatbot_21157479_GustafssonCortes... chatbots){
     this.name = name;
     this.initialChatbotCodeLink = initialChatbotCodeLink;
-    this.chatbots = chatbots;
-
-    //???????????????????????????????
+    this.chatbots = new ArrayList<>(List.of(chatbots));
     this.users = new ArrayList<>();
-    this.chat = new ArrayList<>();
     this.estado = "sesion_inactiva";
     }
 
     //Selectores
     /**
      * Se selecciona el nombre del sistema.
+     *
+     * @return String Nombre del sistema.
      */
     @Override
     public String getName() {
@@ -47,6 +52,8 @@ public class system_21157479_GustafssonCortes implements Isystem_21157479_Gustaf
     }
     /**
      * Se selecciona el link del codigo inicial de un chatbot dedl sistema.
+     *
+     * @return int Codigo del link inicial.
      */
     @Override
     public int getInitialChatbotCodeLink() {
@@ -54,13 +61,17 @@ public class system_21157479_GustafssonCortes implements Isystem_21157479_Gustaf
     }
     /**
      * Se selecciona la lista de chatbots del sistema.
+     *
+     * @return ArrayList Lista de chatbots.
      */
     @Override
     public ArrayList<chatbot_21157479_GustafssonCortes> getChatbots() {
         return chatbots;
     }
     /**
-     * Se selecciona la lista de usuarios deñ sistema.
+     * Se selecciona la lista de usuarios del sistema.
+     *
+     * @return ArrayList Lista de usuarios.
      */
     @Override
     public ArrayList<user_21157479_GustafssonCortes> getUsers() {
@@ -68,14 +79,18 @@ public class system_21157479_GustafssonCortes implements Isystem_21157479_Gustaf
     }
     /**
      * Se selecciona el historial del chat del sistema.
+     *
+     * @return ArrayList Historial del chat.
      */
     @Override
-    public ArrayList<chatHistory_21157479_GustafssonCortes> getChat() {
+    public String[] getChat() {
         return chat;
     }
 
     /**
      * Se selecciona el estado en el que encuentra el sistema.
+     *
+     * @return String Estado del sistema.
      */
     @Override
     public String getEstado() {
@@ -87,6 +102,8 @@ public class system_21157479_GustafssonCortes implements Isystem_21157479_Gustaf
     /**
      * Añade un nuevo chatbot a la lista de chatbots de un sistema en específico, pero primero verifica que este nuevo
      * chatbot, por medio de su id, no se repita. Si está repetido, se mantiene el sistema inicial sin cambios.
+     *
+     * @param chatbot Chatbot que se añadirá al sistema.
      */
     public void systemAddChatbot(chatbot_21157479_GustafssonCortes chatbot){
         int x = chatbot.getChatbotID();
@@ -102,12 +119,14 @@ public class system_21157479_GustafssonCortes implements Isystem_21157479_Gustaf
     /**
      * Añade un nuevo usuario al sistema, verificando que no se repita su nombre en otros usuarios, ya que si es así,
      * no será agregado a al sistema.
+     *
+     * @param user que se añadirá al sistema.
      */
     public void systemAddUser(user_21157479_GustafssonCortes user){
         String x = user.getUsername();
         ArrayList<user_21157479_GustafssonCortes> users = this.getUsers();
         for(user_21157479_GustafssonCortes us : users){
-            if (us.getUsername() == x){
+            if (us.getUsername().equals(x)){
                 return;
             }
         }
@@ -117,25 +136,27 @@ public class system_21157479_GustafssonCortes implements Isystem_21157479_Gustaf
     /**
      * Hace iniciar sesión a un usuario en el sistema, pero primero se comprueba que no esté "conectado", que no haya
      * nadie con su misma id (su nombre) o que no existe una sesión ya iniciada por otro usuario.
+     *
+     * @param user Usuario que iniciará sesión.
      */
     public void systemLogin(user_21157479_GustafssonCortes user){
         String x = user.getUsername();
         ArrayList<user_21157479_GustafssonCortes> users = this.getUsers();
         String estado = this.getEstado();
         for(user_21157479_GustafssonCortes us : users){
-            if (us.getUsername() == x || estado == null){
+            if (us.getUsername().equals(x) && estado.equals("sesion_inactiva")){
                 this.estado = x;
                 return;
             }
         }
-    }
 
+    }
 
     /**
      * Permite cerrar la sesión abierta anteriormente por un mismo usuario.
      */
     public void systemLogout(){
-        this.estado = null;
+        this.estado = "sesion_inactiva";
     }
 
     /**

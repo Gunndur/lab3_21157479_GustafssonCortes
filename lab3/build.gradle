@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'org.example'
@@ -9,7 +10,27 @@ repositories {
     mavenCentral()
 }
 
+run {
+    standardInput = System.in
+}
+
+application {
+    mainClass = 'main.main_21157479_GustafssonCortes'
+}
+
+jar{
+    manifest {
+        attributes "Main-Class": "main.main_21157479_GustafssonCortes"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
+    implementation 'org.jetbrains:annotations:24.0.0'
+    implementation 'org.jetbrains:annotations:24.0.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
@@ -17,3 +38,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+

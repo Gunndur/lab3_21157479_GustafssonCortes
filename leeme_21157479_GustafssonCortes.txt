@@ -1,0 +1,5 @@
+% lab3_21157479_GustafssonCortes
+Laboratorio Nº3 de Paradigma
+
+Todo las clases, interfaces y todo lo demás se encuentra en la carpeta "lab3\src".
+Los comentarios proporcionados por Javadoc se encuentran en la carpeta "javadoc".

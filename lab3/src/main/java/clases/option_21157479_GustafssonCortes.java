@@ -1,6 +1,5 @@
 package clases;
 import interfaces.Ioption_21157479_GustafssonCortes;
-import java.util.ArrayList;
 
 /**
  * CLASE OPTION:
@@ -9,7 +8,10 @@ import java.util.ArrayList;
  *
  * Dom: code(int) x message(string) x chatbotCodeLink(int) x initialFlowCodeLink(int) x keyword(Lista de Strings).
  * Rec: option.
+ *
+ * @author Thomas Gustafsson Cortés
  */
+
 public class option_21157479_GustafssonCortes implements Ioption_21157479_GustafssonCortes {
 
     //---------Atributos---------
@@ -21,8 +23,15 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
 
     //---------Métodos---------
 
-    //Constructor
-    public void option_21157479_GustafssonCortes(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, String... keyword){
+    /**
+     * Constructor.
+     * @param code
+     * @param message
+     * @param chatbotCodeLink
+     * @param initialFlowCodeLink
+     * @param keyword
+     */
+    public option_21157479_GustafssonCortes(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, String... keyword){
         this.code = code;
         this.message = message;
         this.chatbotCodeLink = chatbotCodeLink;
@@ -34,6 +43,8 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
 
     /**
      * Se selecciona el codigo de la opción.
+     *
+     * @return int Codigo de la opción.
      */
     @Override
     public int getCode() {
@@ -42,6 +53,8 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
 
     /**
      * Se selecciona el mensaje de la opción.
+     *
+     * @return String Mensaje de la opción.
      */
     @Override
     public String getMessage() {
@@ -50,6 +63,8 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
 
     /**
      * Se selecciona el link del chatbot de una opción.
+     *
+     * @return int Link del chatbot de una opción.
      */
     @Override
     public int getChatbotCodeLink() {
@@ -58,6 +73,8 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
 
     /**
      * Se selecciona el código del link inicial del flow de una opción.
+     *
+     * @return int Link inicial del flow de una opción.
      */
     @Override
     public int getInitialFlowCodeLink() {
@@ -66,6 +83,8 @@ public class option_21157479_GustafssonCortes implements Ioption_21157479_Gustaf
 
     /**
      * Se selecciona los o el keyword de una opción.
+     *
+     * @return List Palabras claves de una opción
      */
     @Override
     public String[] getKeyword() {

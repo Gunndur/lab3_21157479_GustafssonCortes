@@ -7,23 +7,35 @@ import interfaces.Iuser_21157479_GustafssonCortes;
  *
  * Dom: username(String).
  * Rec: user.
+ *
+ * @author Thomas Gustafsson Cortés
  */
 public abstract class user_21157479_GustafssonCortes implements Iuser_21157479_GustafssonCortes{
     //---------Atributos---------
     protected String username;
+    protected int tipo;
 
     //---------Métodos---------
 
-    //Constructor
-
     //Selectores
     /**
-     * Se selecciona el id del chatbot.
+     * Se selecciona el id del usuario.
+     *
+     * @return String Id del usuario.
      */
     @Override
     public String getUsername() {
         return username;
     }
-    //Modificadores
+
+    /**
+     * Se selecciona el tipo del usuario, que con el cual se valida si es administrador o un usuario normal.
+     *
+     * @return int Numero identificador de tipo de usuario.
+     */
+    @Override
+    public int getTipo() {
+        return tipo;
+    }
 
 }
